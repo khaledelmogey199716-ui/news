@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:news_c19/core/remote/network/api_manager.dart';
 import 'package:news_c19/core/resources/assets_manager.dart';
 import 'package:news_c19/core/resources/strings_manager.dart';
 import 'package:news_c19/model/category_model.dart';
@@ -19,6 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   CategoryModel? selectedCategory;
   @override
   Widget build(BuildContext context) {
+    Person(gender: "M",age: 30,name: "Ahmed",friends: ["Said","Mohamed","Sara"]);
     return Scaffold(
       drawer: HomeDrawer(unSelectCategory),
       appBar: AppBar(
@@ -29,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
           } , icon: SvgPicture.asset(AssetsManager.search))
         ],
       ),
-      body: selectedCategory!=null?ArticlesWidget():CategoriesWidget(selectCategory),
+      body: selectedCategory!=null?ArticlesWidget(category: selectedCategory!,):CategoriesWidget(selectCategory),
     );
   }
 
@@ -45,6 +47,14 @@ class _HomeScreenState extends State<HomeScreen> {
       selectedCategory = null;
     });
   }
+}
+
+class Person{
+  String name;
+  int age;
+  String gender;
+  List<String> friends;
+  Person({required this.name,required this.friends,required this.gender,required this.age});
 }
 
 

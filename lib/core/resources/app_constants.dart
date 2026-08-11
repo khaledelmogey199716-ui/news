@@ -1,5 +1,3 @@
 abstract class AppConstants {
-  static List<String> dummySources = [
-    "Cbc","Al jazeera","BEIN News","On E","Sada EL Balad","Masriya","BBC","Fox News"
-  ];
+  static const String apiKey = "d3e16e322c2e4c00b4b4f4967c290a7f";
 }
