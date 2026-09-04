@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_c19/core/resources/strings_manager.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'articles_response/Article.dart';
 
@@ -46,8 +47,23 @@ class ShowArticleDetails {
             SizedBox(height: 8.h),
 
             ElevatedButton(
-              onPressed: () {
-                // Handle view full article
+              onPressed: () async {
+                final String? articleUrl = article.url;
+                if (articleUrl == null || articleUrl.isEmpty) {
+                  return;
+                }
+                final Uri url = Uri.parse(articleUrl);
+                final bool success = await launchUrl(
+                  url,
+                  mode: LaunchMode.externalApplication,
+                );
+                if (!success && context.mounted) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Could not open the article'),
+                    ),
+                  );
+                }
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Theme.of(context).colorScheme.secondary,
