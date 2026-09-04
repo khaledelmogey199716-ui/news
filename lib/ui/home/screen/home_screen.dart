@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:news_c19/core/remote/network/api_manager.dart';
 import 'package:news_c19/core/resources/assets_manager.dart';
+import 'package:news_c19/core/resources/routes_manager.dart';
 import 'package:news_c19/core/resources/strings_manager.dart';
 import 'package:news_c19/model/category_model.dart';
 import 'package:news_c19/ui/articles/articles_widget.dart';
@@ -27,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text(selectedCategory!=null?selectedCategory!.title:StringsManager.home),
         actions: [
           IconButton(onPressed: () {
-
+            Navigator.of(context).pushNamed(RoutesManager.searchRouteName);
           } , icon: SvgPicture.asset(AssetsManager.search))
         ],
       ),

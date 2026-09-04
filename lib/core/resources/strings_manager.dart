@@ -6,4 +6,5 @@ Here is Some News For You''';
   static const String home = "Home";
   static const String viewAll = "View All";
   static const String viewFullArticle = "View Full Article";
+  static const String search = "Search";
 }

@@ -9,4 +9,5 @@ abstract final class AssetsManager {
   static const String technology = "assets/images/technology.png";
   static const String sports = "assets/images/sports.png";
   static const String home = "assets/images/Home 1.svg";
+  static const String close = "assets/images/close.svg";
 }

@@ -4,6 +4,8 @@ import 'package:news_c19/core/resources/app_theme.dart';
 import 'package:news_c19/core/resources/routes_manager.dart';
 import 'package:news_c19/ui/home/screen/home_screen.dart';
 
+import 'ui/search/screen/search_screen.dart';
+
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await ScreenUtil.ensureScreenSize();
@@ -26,7 +28,8 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           theme: AppTheme.lightTheme,
           routes: {
-            RoutesManager.homeRouteName:(_)=>HomeScreen()
+            RoutesManager.homeRouteName:(_)=>HomeScreen(),
+            RoutesManager.searchRouteName: (_)=> SearchScreen(),
           },
           initialRoute: RoutesManager.homeRouteName,
         );
