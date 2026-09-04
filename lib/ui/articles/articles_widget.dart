@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_c19/core/remote/network/api_manager.dart';
-import 'package:news_c19/core/resources/app_constants.dart';
 import 'package:news_c19/model/category_model.dart';
 import 'package:news_c19/ui/articles/articles_list.dart';
 
